@@ -16,14 +16,14 @@ const LeftSidebar = () => {
 
   const filteredLinks = userId
     ? sidebarLinks.map((link) =>
-        link.route === "/profile"
-          ? { ...link, route: `${link.route}/${userId}` }
-          : link,
-      )
+      link.route === "/profile"
+        ? { ...link, route: `${link.route}/${userId}` }
+        : link,
+    )
     : sidebarLinks.filter((link) => link.route !== "/profile");
 
   return (
-    <section className="background-light900_dark200 light-border custom-scrollbar sticky left-0 top-0 flex h-screen flex-col justify-between overflow-y-auto border-r p-6 pt-36 shadow-light-300 dark:shadow-none max-sm:hidden lg:w-[266px]">
+    <section className="background-light900_dark200 light-border custom-scrollbar sticky left-0 top-0 flex h-screen flex-col justify-between overflow-y-auto border-r p-6 pt-36 shadow-light-300 dark:shadow-none max-sm:hidden lg:w-[266px] transition-all duration-200">
       <div className="flex flex-1 flex-col gap-6">
         {filteredLinks.map((link) => {
           const isActive =
@@ -34,11 +34,10 @@ const LeftSidebar = () => {
             <Link
               key={link.route}
               href={link.route}
-              className={`${
-                isActive
-                  ? "primary-gradient rounded-lg text-light-900"
-                  : "text-dark300_light900"
-              } flex items-center justify-start gap-4 bg-transparent p-4`}
+              className={`${isActive
+                ? "primary-gradient rounded-lg text-light-900 shadow-md"
+                : "text-dark300_light900 hover:bg-light-800 dark:hover:bg-dark-300"
+                } flex items-center justify-start gap-4 bg-transparent p-4 rounded-lg transition-all duration-200`}
             >
               <Image
                 src={link.imgURL}
@@ -48,9 +47,8 @@ const LeftSidebar = () => {
                 className={`${isActive ? "" : "invert-colors"}`}
               />
               <p
-                className={`${
-                  isActive ? "base-bold" : "base-medium"
-                } max-lg:hidden`}
+                className={`${isActive ? "base-bold" : "base-medium"
+                  } max-lg:hidden`}
               >
                 {link.label}
               </p>
@@ -62,7 +60,7 @@ const LeftSidebar = () => {
       <SignedOut>
         <div className="flex flex-col gap-3">
           <Link href="/sign-in">
-            <Button className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
+            <Button className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none hover:shadow-md transition-all duration-200">
               <Image
                 src="/assets/icons/account.svg"
                 alt="sign in"
@@ -77,7 +75,7 @@ const LeftSidebar = () => {
           </Link>
 
           <Link href="/sign-up">
-            <Button className="small-medium light-border-2 btn-tertiary text-dark400_light900 min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
+            <Button className="small-medium light-border-2 btn-tertiary text-dark400_light900 min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none hover:shadow-md transition-all duration-200">
               <Image
                 src="/assets/icons/sign-up.svg"
                 alt="sign up"

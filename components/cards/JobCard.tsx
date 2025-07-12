@@ -54,19 +54,18 @@ const JobCard = ({
     ? employerLogo
     : "/assets/images/site-logo.svg";
 
-  const location = `${city ? `${city}${state ? ", " : ""}` : ""}${state || ""}${
-    city && state && country ? ", " : ""
-  }${country || ""}`;
+  const location = `${city ? `${city}${state ? ", " : ""}` : ""}${state || ""}${city && state && country ? ", " : ""
+    }${country || ""}`;
 
   return (
-    <div className="card-wrapper rounded-[10px]">
-      <div className="flex flex-row gap-4 p-6">
-        <div className="hidden sm:block">
+    <div className="card-wrapper rounded-[10px] hover:shadow-lg transition-shadow duration-200">
+      <div className="flex flex-col sm:flex-row gap-4 p-6">
+        <div className="hidden sm:block shrink-0">
           <JobBadge data={{ website: employerWebsite, logo: imageUrl }} />
         </div>
 
-        <div>
-          <div className="block sm:hidden">
+        <div className="flex-1">
+          <div className="block sm:hidden mb-4">
             <div className="flex flex-col-reverse items-end">
               <JobBadge data={{ location, country }} isLocation />
             </div>
@@ -78,7 +77,7 @@ const JobCard = ({
                 badgeStyles="mb-6 sm:hidden"
               />
               <div className="flex flex-col">
-                <h3 className="sm:h3-semibold base-semibold text-dark200_light900 line-clamp-2">
+                <h3 className="sm:h3-semibold base-semibold text-dark200_light900 line-clamp-2 hover:text-primary-500 transition-colors">
                   {title}
                 </h3>
                 <h4 className="paragraph-medium text-dark400_light700">
@@ -91,7 +90,7 @@ const JobCard = ({
             </div>
             <JobBadge
               data={{ location, country }}
-              badgeStyles="hidden sm:flex"
+              badgeStyles="hidden sm:flex shrink-0"
               isLocation
             />
           </div>
@@ -105,7 +104,7 @@ const JobCard = ({
               {requiredSkills.map((tag) => (
                 <Badge
                   key={tag}
-                  className="subtle-medium background-light800_dark300 text-light400_light500 rounded-md border-none px-4 py-2 uppercase"
+                  className="subtle-medium background-light800_dark300 text-light400_light500 rounded-md border-none px-4 py-2 uppercase hover:bg-primary-100 hover:text-primary-500 transition-colors"
                 >
                   {tag}
                 </Badge>
@@ -136,7 +135,7 @@ const JobCard = ({
             </div>
             <Link
               href={applyLink || "/"}
-              className="flex items-center gap-2"
+              className="flex items-center gap-2 hover:opacity-80 transition-opacity"
               target="_blank"
               rel="noopener noreferrer"
             >

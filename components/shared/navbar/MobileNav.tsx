@@ -18,10 +18,10 @@ const NavContent = () => {
   const pathname = usePathname();
   const filteredLinks = userId
     ? sidebarLinks.map((link) =>
-        link.route === "/profile"
-          ? { ...link, route: `${link.route}/${userId}` }
-          : link,
-      )
+      link.route === "/profile"
+        ? { ...link, route: `${link.route}/${userId}` }
+        : link,
+    )
     : sidebarLinks.filter((link) => link.route !== "/profile");
 
   return (
@@ -34,7 +34,7 @@ const NavContent = () => {
           <SheetClose asChild key={item.route}>
             <Link
               href={item.route}
-              className={`${isActive ? "primary-gradient rounded-lg text-light-900" : "text-dark300_light900"} flex items-center justify-start gap-4 bg-transparent p-4`}
+              className={`${isActive ? "primary-gradient rounded-lg text-light-900 shadow-md" : "text-dark300_light900 hover:bg-light-800 dark:hover:bg-dark-300"} flex items-center justify-start gap-4 bg-transparent p-4 rounded-lg transition-all duration-200`}
             >
               <Image
                 src={item.imgURL}
@@ -63,10 +63,10 @@ const MobileNav = () => {
           alt="menu"
           width={36}
           height={36}
-          className="invert-colors sm:hidden"
+          className="invert-colors sm:hidden cursor-pointer hover:opacity-80 transition-opacity"
         />
       </SheetTrigger>
-      <SheetContent side="left" className="background-light900_dark200 border">
+      <SheetContent side="left" className="background-light900_dark200 border-none shadow-xl">
         <Link href="/" className="flex items-center gap-1 ">
           <Image
             src="/assets/images/site-logo.svg"
@@ -83,17 +83,17 @@ const MobileNav = () => {
             <NavContent />
           </SheetClose>
           <SignedOut>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 mt-8">
               <SheetClose asChild>
                 <Link href="/sign-in">
-                  <Button className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
+                  <Button className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none hover:shadow-md transition-all duration-200">
                     <span className="primary-text-gradient">Log In</span>
                   </Button>
                 </Link>
               </SheetClose>
               <SheetClose asChild>
                 <Link href="/sign-up">
-                  <Button className="small-medium light-border-2 btn-tertiary text-dark400_light900 min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
+                  <Button className="small-medium light-border-2 btn-tertiary text-dark400_light900 min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none hover:shadow-md transition-all duration-200">
                     <span>Sign Up</span>
                   </Button>
                 </Link>

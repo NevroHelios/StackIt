@@ -37,7 +37,7 @@ const EditDeleteAction = ({ type, itemId }: Props) => {
           alt="edit"
           width={14}
           height={14}
-          className="cursor-pointer object-contain"
+          className="cursor-pointer object-contain hover:opacity-70 transition-opacity"
           onClick={handleEdit}
         />
       )}
@@ -46,7 +46,7 @@ const EditDeleteAction = ({ type, itemId }: Props) => {
         alt="delete"
         width={14}
         height={14}
-        className="cursor-pointer object-contain"
+        className="cursor-pointer object-contain hover:opacity-70 transition-opacity"
         onClick={handleDelete}
       />
     </div>

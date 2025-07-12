@@ -43,14 +43,14 @@ const QuestionCard = ({
 }: Props) => {
   const showActionButtons = clerkId && clerkId === author.clerkId;
   return (
-    <div className="card-wrapper rounded-[10px] p-9 sm:px-11">
+    <div className="card-wrapper rounded-[10px] p-4 sm:p-6 lg:p-9 lg:px-11 hover:shadow-lg transition-all duration-200 border border-light-800 dark:border-dark-300">
       <div className="flex flex-col-reverse items-start justify-between gap-5 sm:flex-row">
-        <div>
-          <span className="subtle-regular text-dark400_light700 line-clamp-1 flex sm:hidden">
+        <div className="flex-1 w-full">
+          <span className="subtle-regular text-dark400_light700 line-clamp-1 flex sm:hidden mb-2">
             {getTimestamp(createdAt)}
           </span>
           <Link href={`/question/${_id}`}>
-            <h3 className="sm:h3-semibold base-semibold text-dark200_light900 line-clamp-1 flex-1">
+            <h3 className="sm:h3-semibold base-semibold text-dark200_light900 line-clamp-2 flex-1 hover:text-primary-500 transition-colors mb-1">
               {title}
             </h3>
           </Link>
@@ -74,9 +74,9 @@ const QuestionCard = ({
           title={`- asked ${getTimestamp(createdAt)}`}
           href={`/profile/${author.clerkId}`}
           isAuthor
-          textStyles="bogy-medium text-dark400_light700"
+          textStyles="body-medium text-dark400_light700"
         />
-        <div className="flex items-center gap-3 max-sm:flex-wrap max-sm:justify-start">
+        <div className="flex items-center gap-3 max-sm:flex-wrap max-sm:justify-start max-sm:w-full max-sm:mt-3">
           <Metric
             imgUrl="/assets/icons/like.svg"
             alt="Upvotes"

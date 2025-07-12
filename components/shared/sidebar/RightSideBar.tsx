@@ -11,7 +11,7 @@ const RightSideBar = async () => {
   const popularTags = await getPopularTags();
 
   return (
-    <section className="background-light900_dark200 light-border custom-scrollbar sticky right-0 top-0 flex h-screen flex-col overflow-y-auto border-l p-6 pt-36 shadow-light-300 dark:shadow-none max-xl:hidden lg:w-[350px]">
+    <section className="background-light900_dark200 light-border custom-scrollbar sticky right-0 top-0 flex h-screen flex-col overflow-y-auto border-l p-6 pt-36 shadow-light-300 dark:shadow-none max-xl:hidden lg:w-[350px] transition-all duration-200">
       <div>
         <h3 className="h3-bold text-dark200_light900">Top Questions</h3>
         <div className="mt-7 flex w-full flex-col gap-[30px]">
@@ -19,9 +19,9 @@ const RightSideBar = async () => {
             <Link
               key={question._id}
               href={`/question/${question._id}`}
-              className="flex cursor-pointer  items-center justify-between gap-7"
+              className="flex cursor-pointer items-center justify-between gap-7 hover:bg-light-800 dark:hover:bg-dark-300 p-3 rounded-lg transition-all duration-200"
             >
-              <p className="body-medium text-dark500_light700">
+              <p className="body-medium text-dark500_light700 line-clamp-2">
                 {question.title}
               </p>
               <Image
@@ -29,7 +29,7 @@ const RightSideBar = async () => {
                 alt="chevron right"
                 width={20}
                 height={20}
-                className="invert-colors"
+                className="invert-colors flex-shrink-0"
               />
             </Link>
           ))}

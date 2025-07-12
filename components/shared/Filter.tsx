@@ -43,19 +43,19 @@ const Filter = ({ filters, otherClasses, containerClasses }: Props) => {
         defaultValue={paramFilter || undefined}
       >
         <SelectTrigger
-          className={`${otherClasses} body-regular light-border background-light800_dark300 text-dark500_light700 border px-5 py-2.5`}
+          className={`${otherClasses} body-regular light-border background-light800_dark300 text-dark500_light700 border px-5 py-2.5 rounded-lg hover:border-primary-500 dark:hover:border-primary-500 transition-all duration-200`}
         >
           <div className="line-clamp-1 flex-1 text-left">
             <SelectValue placeholder="Select a Filter" />
           </div>
         </SelectTrigger>
-        <SelectContent className="text-dark500_light700 small-regular border-none bg-light-900 dark:bg-dark-300">
+        <SelectContent className="text-dark500_light700 small-regular border-none bg-light-900 dark:bg-dark-300 rounded-lg shadow-lg">
           <SelectGroup>
             {filters.map((filter) => (
               <SelectItem
                 key={filter.value}
                 value={filter.value}
-                className="cursor-pointer focus:bg-light-800 dark:focus:bg-dark-400"
+                className="cursor-pointer focus:bg-light-800 dark:focus:bg-dark-400 hover:bg-primary-100 hover:text-primary-500 dark:hover:bg-dark-400 dark:hover:text-primary-500 transition-all duration-200"
               >
                 {filter.name}
               </SelectItem>

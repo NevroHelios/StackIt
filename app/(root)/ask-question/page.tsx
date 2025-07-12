@@ -18,8 +18,11 @@ const AskQuestionPage = async () => {
   const mongooseUser = await getUserById({ userId });
 
   return (
-    <div>
-      <h1 className="h1-bold text-dark100_light900">Ask a Question</h1>
+    <div className="max-w-4xl mx-auto">
+      <h1 className="h1-bold text-dark100_light900 mb-2">Ask a Question</h1>
+      <p className="body-regular text-dark500_light700 mb-8">
+        Get help from our community of developers. Be specific and clear in your question.
+      </p>
       <div className="mt-9">
         <Question mongoUserId={JSON.stringify(mongooseUser._id)} />
       </div>

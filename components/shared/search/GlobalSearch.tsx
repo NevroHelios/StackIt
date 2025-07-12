@@ -64,10 +64,10 @@ const GlobalSearch = () => {
 
   return (
     <div
-      className="relative w-full max-w-[600px] max-lg:hidden"
+      className="relative w-full max-w-[600px] max-lg:max-w-[400px] max-md:max-w-[300px] max-lg:hidden"
       ref={searchContainerRef}
     >
-      <div className="background-light800_darkgradient relative flex min-h-[56px] grow items-center gap-1 rounded-xl px-4">
+      <div className="background-light800_darkgradient relative flex min-h-[56px] grow items-center gap-1 rounded-xl px-4 hover:shadow-md transition-all duration-200 border border-light-700 dark:border-dark-400">
         <Image
           src="/assets/icons/search.svg"
           width={24}

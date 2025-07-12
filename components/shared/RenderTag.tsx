@@ -15,8 +15,8 @@ const RenderTag = ({
   showCount,
 }: RenderTagProps) => {
   return (
-    <Link href={`/tags/${_id}`} className="flex justify-between gap-2">
-      <Badge className="subtle-medium background-light800_dark300 text-light400_light500 rounded-md border-none px-4 py-2 uppercase">
+    <Link href={`/tags/${_id}`} className="flex justify-between gap-2 group">
+      <Badge className="subtle-medium background-light800_dark300 text-light400_light500 rounded-md border-none px-4 py-2 uppercase hover:bg-primary-100 hover:text-primary-500 dark:hover:bg-dark-400 dark:hover:text-primary-500 transition-all duration-200 group-hover:shadow-md">
         {name}
       </Badge>
       {showCount && (

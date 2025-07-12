@@ -11,7 +11,7 @@ interface Props {
 
 const NoResult = ({ title, description, link, linkTitle }: Props) => {
   return (
-    <div className="mt-10 flex w-full flex-col items-center justify-center">
+    <div className="mt-10 flex w-full flex-col items-center justify-center p-6 rounded-lg background-light900_dark200">
       <Image
         src="/assets/images/light-illustration.png"
         alt="no result illustration"
@@ -26,14 +26,14 @@ const NoResult = ({ title, description, link, linkTitle }: Props) => {
         width={270}
         className="hidden object-contain dark:flex"
       />
-      <h2 className="h2-bold text-dark200_light900 mt-8">{title}</h2>
+      <h2 className="h2-bold text-dark200_light900 mt-8 text-center">{title}</h2>
       <p className="body-regular text-dark500_light700 my-3.5 max-w-md text-center">
         {description}
       </p>
       <Link href={link}>
-        <Button className="paragraph-medium mt-5 min-h-[46px] rounded-lg bg-primary-500 px-4 py-3 text-light-900 hover:bg-primary-500 dark:bg-primary-500 dark:text-light-900">
+        <Button className="paragraph-medium mt-5 min-h-[46px] rounded-lg bg-primary-500 px-6 py-3 text-light-900 hover:bg-primary-600 dark:bg-primary-500 dark:text-light-900 transition-all duration-200 shadow-lg hover:shadow-xl">
           {linkTitle}
-        </Button>   
+        </Button>
       </Link>
     </div>
   );

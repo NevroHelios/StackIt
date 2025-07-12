@@ -48,15 +48,15 @@ export default async function Home({ searchParams }: SearchParamsProps) {
 
   return (
     <>
-      <div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center ">
+      <div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center mb-8">
         <h1 className="h1-bold text-dark100_light900">All Questions</h1>
         <Link href={`/ask-question`} className="flex justify-end max-sm:w-full">
-          <Button className="primary-gradient min-h-[46px] px-4 py-3 !text-light-900">
+          <Button className="primary-gradient min-h-[46px] px-4 py-3 !text-light-900 hover:opacity-90 transition-all duration-200 shadow-lg hover:shadow-xl max-sm:w-full max-sm:justify-center">
             Ask a Question
           </Button>
         </Link>
       </div>
-      <div className="mt-11 flex justify-between gap-5 max-sm:flex-col sm:items-center">
+      <div className="mt-8 flex justify-between gap-5 max-sm:flex-col sm:items-center">
         <LocalSearchBar
           route="/"
           iconPosition="left"
@@ -68,11 +68,10 @@ export default async function Home({ searchParams }: SearchParamsProps) {
           filters={HomePageFilters}
           otherClasses="min-h-[56px] sm:min-w-[170px]"
           containerClasses="hidden max-md:flex"
-          
         />
       </div>
       <HomeFilters />
-      <div className="mt-10 flex w-full flex-col gap-6 ">
+      <div className="mt-8 flex w-full flex-col gap-6 ">
         {result.questions.length > 0 ? (
           result.questions.map((question) => (
             <QuestionCard

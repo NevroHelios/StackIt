@@ -27,7 +27,7 @@ const Metric = ({
         width={16}
         height={16}
         alt={alt}
-        className={`${href ? "rounded-full" : "invert-colors"} object-contain`}
+        className={`${href ? "rounded-full" : "invert-colors"} object-contain flex-shrink-0`}
       />
       <p className={`flex items-center gap-1 ${textStyles}`}>
         {value}
@@ -41,7 +41,7 @@ const Metric = ({
   );
   if (href) {
     return (
-      <Link href={href} className="flex-center gap-1">
+      <Link href={href} className="flex-center gap-1 hover:opacity-80 transition-all duration-200 hover:text-primary-500">
         {metricContent}
       </Link>
     );

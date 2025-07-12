@@ -48,27 +48,24 @@ const Filters = ({
 
   return (
     <div
-      className={`mt-10 flex flex-wrap-reverse gap-3 md:flex-wrap ${
-        !jobFilter && "hidden"
-      }`}
+      className={`mt-10 flex flex-wrap-reverse gap-3 md:flex-wrap ${!jobFilter && "hidden"
+        }`}
     >
       {filters.map((filter, index) => (
         <Button
           key={filter.value}
           onClick={() => handleTypeClick(filter.value)}
-          className={`body-medium mb-0.5 mr-0.5 rounded-lg px-6 py-3 capitalize shadow-none md:mb-0 md:mr-0 line-clamp-1 ${
-            active === filter.value
+          className={`body-medium mb-0.5 mr-0.5 rounded-lg px-6 py-3 capitalize shadow-none md:mb-0 md:mr-0 line-clamp-1 transition-colors duration-200 ${active === filter.value
               ? "bg-primary-100 text-primary-500 dark:bg-dark-400 dark:hover:bg-dark-400"
-              : "bg-light-800 text-light-500 hover:bg-light-800 dark:bg-dark-300 dark:text-light-500 dark:hover:bg-dark-300"
-          }
-          `}
+              : "bg-light-800 text-light-500 hover:bg-light-700 dark:bg-dark-300 dark:text-light-500 dark:hover:bg-dark-200"
+            }`}
         >
           {filter.name}
         </Button>
       ))}
 
       {jobFilter && (
-        <div className="background-light800_dark300 mt-2 flex items-center rounded-lg px-3 py-2 shadow-none md:mt-0">
+        <div className="background-light800_dark300 mt-2 flex items-center gap-2 rounded-lg px-3 py-2 shadow-none md:mt-0">
           <Switcher query="remote" label="Remote" />
           <Switcher query="wage" label="TBA" />
           <Switcher query="skills" label="Skills" />

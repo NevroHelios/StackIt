@@ -35,15 +35,14 @@ const HomeFilters = () => {
   };
 
   return (
-    <div className="mt-10 hidden flex-wrap gap-3 md:flex">
+    <div className="mt-8 hidden flex-wrap gap-3 md:flex">
       {HomePageFilters.map((filter) => (
         <Button
-          className={`body-medium rounded-lg px-6 py-3 capitalize shadow-none 
-          ${
-            active === filter.value
-              ? "bg-primary-100 text-primary-500 hover:bg-primary-100 dark:bg-dark-400 dark:text-primary-500 dark:hover:bg-dark-400"
-              : "bg-light-800 text-light-500 hover:bg-light-800 dark:bg-dark-300 dark:text-light-500 dark:hover:bg-dark-300  "
-          }`}
+          className={`body-medium rounded-lg px-4 py-3 capitalize shadow-none transition-all duration-200 border
+          ${active === filter.value
+              ? "bg-primary-100 text-primary-500 hover:bg-primary-100 dark:bg-dark-400 dark:text-primary-500 dark:hover:bg-dark-400 border-primary-500"
+              : "bg-light-800 text-light-500 hover:bg-light-700 dark:bg-dark-300 dark:text-light-500 dark:hover:bg-dark-200 border-light-700 dark:border-dark-400 hover:border-primary-500 dark:hover:border-primary-500"
+            }`}
           key={filter.value}
           onClick={() => handleFilter(filter.value)}
         >

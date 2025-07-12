@@ -23,9 +23,14 @@ const CommunityPage = async ({ searchParams }: SearchParamsProps) => {
 
   return (
     <>
-      <h1 className="h1-bold text-dark100_light900">All Users</h1>
+      <div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center mb-8">
+        <h1 className="h1-bold text-dark100_light900">All Users</h1>
+        <p className="body-regular text-dark500_light700 max-sm:text-center">
+          Connect with amazing developers
+        </p>
+      </div>
 
-      <div className="mt-11 flex justify-between gap-5 max-sm:flex-col sm:items-center">
+      <div className="mt-8 flex justify-between gap-5 max-sm:flex-col sm:items-center">
         <LocalSearchBar
           route="/community"
           iconPosition="left"
@@ -38,15 +43,15 @@ const CommunityPage = async ({ searchParams }: SearchParamsProps) => {
           otherClasses="min-h-[56px] sm:min-w-[170px]"
         />
       </div>
-      <section className="mt-12 flex flex-wrap gap-4">
+      <section className="mt-12 grid grid-cols-1 gap-4 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {result.users.length > 0 ? (
           result.users.map((user: any) => (
             <UserCard key={user._id} user={user} />
           ))
         ) : (
-          <div className="paragraph-regular text-dark200_light800 mx-auto max-w-4xl text-center">
+          <div className="paragraph-regular text-dark200_light800 mx-auto max-w-4xl text-center col-span-full">
             <p>No users yet</p>
-            <Link href="/sign-up" className="mt-1 font-bold text-primary-500">
+            <Link href="/sign-up" className="mt-1 font-bold text-primary-500 hover:text-primary-600 transition-colors">
               Join to be the first!
             </Link>
           </div>

@@ -36,11 +36,11 @@ const AllAnswers = async ({
       </div>
       <div className="">
         {result.answers.map((answer) => (
-          <article key={answer._id} className="light-border border-b py-10">
+          <article key={answer._id} className="light-border border-b py-10 hover:bg-light-850 dark:hover:bg-dark-300 transition-colors rounded-lg px-4">
             <div className="mb-8 flex flex-col-reverse justify-between gap-5 sm:flex-row sm:items-center sm:gap-2">
               <Link
                 href={`/profile/${answer.author.clerkId}`}
-                className="flex flex-1 items-start gap-1 sm:items-center"
+                className="flex flex-1 items-start gap-1 sm:items-center hover:opacity-80 transition-opacity"
               >
                 <Image
                   src={answer.author.picture}
@@ -50,7 +50,7 @@ const AllAnswers = async ({
                   className="rounded-full object-cover max-sm:mt-0.5"
                 />
                 <div className="flex flex-col sm:flex-row sm:items-center">
-                  <p className="body-semibold text-dark300_light700 ">
+                  <p className="body-semibold text-dark300_light700">
                     {answer.author.name}
                   </p>
                   <p className="small-regular text-dark400_light500 ml-0.5 mt-0.5 line-clamp-1">

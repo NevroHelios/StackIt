@@ -6,6 +6,9 @@
 
 body {
   font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 @layer utilities {
@@ -22,19 +25,19 @@ body {
   }
 
   .card-wrapper {
-    @apply dark:dark-gradient bg-light-900 shadow-light-100 dark:shadow-dark-100;
+    @apply dark:dark-gradient bg-light-900 shadow-light-100 dark:shadow-dark-100 border border-light-800 dark:border-dark-300;
   }
 
   .btn {
-    @apply bg-light-800 dark:bg-dark-300 !important;
+    @apply bg-light-800 dark:bg-dark-300 transition-all duration-200 hover:shadow-md !important;
   }
 
   .btn-secondary {
-    @apply bg-light-800 dark:bg-dark-400 !important;
+    @apply bg-light-800 dark:bg-dark-400 transition-all duration-200 hover:shadow-md !important;
   }
 
   .btn-tertiary {
-    @apply bg-light-700 dark:bg-dark-300 !important;
+    @apply bg-light-700 dark:bg-dark-300 transition-all duration-200 hover:shadow-md !important;
   }
 
   .markdown {

@@ -54,7 +54,7 @@ const LocalSearchBar = ({
 
   return (
     <div
-      className={`background-light800_darkgradient flex min-h-[56px] grow items-center gap-4 rounded-[10px] px-4 ${otherClasses}`}
+      className={`background-light800_darkgradient flex min-h-[56px] grow items-center gap-4 rounded-[10px] px-4 border border-light-700 dark:border-dark-400 hover:border-primary-500 dark:hover:border-primary-500 transition-all duration-200 ${otherClasses}`}
     >
       {iconPosition === "left" && (
         <Image
