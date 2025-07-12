@@ -1,10 +1,4 @@
-# Next.js 14 DevOverflow
-
-![demo](https://i.ibb.co/x7FChRP/Thumbnail.jpg)
-
-## 🌐 Live Demo
-
-Explore the live demonstration of the project: [nextjs14-devoverflow](https://devoverflow-next14.vercel.app/)
+# StackIt
 
 ## 📝 Description
 
@@ -12,7 +6,7 @@ Explore the live demonstration of the project: [nextjs14-devoverflow](https://de
 
 <details><summary><b>Folder Structure</b></summary>
 
-```bash
+<!-- ```bash
 nextjs14-devoverflow/
 ├── app/
 ├   ├── favicon.ico
@@ -173,7 +167,7 @@ nextjs14-devoverflow/
 ├── postcss.config.js
 ├── tailwind.config.ts
 └── tsconfig.ts
-```
+``` -->
 
 </details>
 
@@ -254,7 +248,7 @@ After following all the instructions above, we'll want to create a new webhook o
 Download or clone this repo by using the link below:
 
 ```bash
-git clone https://github.com/TarakaKoda/stack-overflow-nextjs.git
+git clone https://github.com/NevroHelios/StackIt.git
 ```
 
 **Step 2:**
@@ -330,41 +324,6 @@ You can create an optimized production build with the following command:
 npm run build
 ```
 
-#### Deploy on Vercel (recommended)
-
-The easiest way to deploy this Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fladunjexa%2Fnextjs14-devoverflow)
-
-#### Deploy on Netlify
-
-You can also deploy this Next.js app with [Netlify](https://www.netlify.com/).
-
-[![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/ladunjexa/nextjs14-devoverflow)
-
-Check out [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-## 🔧 Contributing
-
-[![contributors](https://contrib.rocks/image?repo=TarakaKoda/stack-overflow-nextjs)](https://github.com/TarakaKoda/stack-overflow-nextjs/graphs/contributors)
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-To fix a bug or enhance an existing module, follow these steps:
-
-1. Fork the repo
-2. Create a new branch (`git checkout -b improve-feature`)
-3. Make the appropriate changes in the files
-4. Commit your changes (`git commit -am 'Improve feature'`)
-5. Push to the branch (`git push origin improve-feature`)
-6. Create a Pull Request 🎉
-
-### 📩 Bug / Feature Request
-
-If you find a bug (failure of a module to execute its intended function), kindly open an issue [here](https://github.com/TarakaKoda/stack-overflow-nextjs/issues/new) by including the issue with a title and clear description.
-
-If you'd like to request a new function, feel free to do so by opening an issue [here](https://github.com/TarakaKoda/stack-overflow-nextjs/issues/new). Please include sample queries and their corresponding results.
-
 ## 💎 Acknowledgements
 
 I'd like to express my gratitude to the following people who helped me with this project and made it possible:
@@ -381,7 +340,3 @@ I'd like to express my gratitude to the following people who helped me with this
 - [RapidAPI](https://rapidapi.com/)
 - [Vercel](https://vercel.com/)
 - [JavaScript Mastery](https://www.jsmastery.pro/)
-
-## 📚 References
-
-JSMastery. (2023). [Ultimate Next.js 14 Course | Become a top 1% Next.js 14 developer](https://www.jsmastery.pro/ultimate-next-course). E-Learning.
