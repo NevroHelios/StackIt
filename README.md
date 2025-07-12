@@ -21,6 +21,10 @@ Team Name: Team 3757
 
 <img src="static/image.png"/>
 
+
+Demo Video Link: https://youtu.be/eTWKgCwmYD0
+
+
 ## 🌟 Key Features
 
 ### 🎨 **Stunning UI & UX**
