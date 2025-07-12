@@ -42,6 +42,11 @@ export const sidebarLinks: SidebarLink[] = [
     route: "/ask-question",
     label: "Ask a question",
   },
+  {
+    imgURL: "/assets/icons/admin.svg",
+    route: "/admin",
+    label: "Admin Panel",
+  },
 ];
 
 export const BADGE_CRITERIA = {
