@@ -35,18 +35,16 @@ const AnswerCard = ({
   return (
     <Link
       href={`/question/${question._id}/#${_id}`}
-      className="card-wrapper rounded-[10px] px-6 py-6 sm:px-11 sm:py-9 hover:shadow-lg transition-shadow duration-200"
+      className="card-wrapper rounded-[10px] px-11 py-9"
     >
       <div className="flex flex-col-reverse items-start justify-between gap-5 sm:flex-row">
-        <div className="flex-1">
+        <div>
           <span className="subtle-regular text-dark400_light700 line-clamp-1 flex sm:hidden">
             {getTimestamp(createdAt)}
           </span>
-          <Link href={`/question/${question._id}`}>
-            <h3 className="sm:h3-semibold base-semibold text-dark200_light900 line-clamp-1 flex-1 hover:text-primary-500 transition-colors">
-              {question.title}
-            </h3>
-          </Link>
+          <h3 className="sm:h3-semibold base-semibold text-dark200_light900 line-clamp-1 flex-1">
+            {question.title}
+          </h3>
         </div>
         <SignedIn>
           {showActionButtons && (
@@ -54,23 +52,26 @@ const AnswerCard = ({
           )}
         </SignedIn>
       </div>
+
       <div className="flex-between mt-6 w-full flex-wrap gap-3">
         <Metric
-          imgUrl={author.picture || "/assets/icons/avatar.svg"}
-          alt="User"
+          imgUrl={author.picture}
+          alt="user"
           value={author.name}
-          title={`- asked ${getTimestamp(createdAt)}`}
-          href={`/profile/${author._id}`}
+          title={` - answered ${getTimestamp(createdAt)}`}
+          href={`/profile/${author.clerkId}`}
           isAuthor
           textStyles="body-medium text-dark400_light700"
         />
-        <Metric
-          imgUrl="/assets/icons/like.svg"
-          alt="Upvotes"
-          value={getFormattedNumber(upvotes)}
-          title=" Votes"
-          textStyles="small-medium text-dark400_light800"
-        />
+        <div className="flex-center gap-3">
+          <Metric
+            imgUrl="/assets/icons/like.svg"
+            alt="Upvotes"
+            value={getFormattedNumber(upvotes)}
+            title=" Votes"
+            textStyles="small-medium text-dark400_light800"
+          />
+        </div>
       </div>
     </Link>
   );

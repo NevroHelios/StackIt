@@ -54,12 +54,12 @@ const LocalSearchBar = ({
 
   return (
     <div
-      className={`background-light800_darkgradient flex min-h-[56px] grow items-center gap-4 rounded-[10px] px-4 border border-light-700 dark:border-dark-400 hover:border-primary-500 dark:hover:border-primary-500 transition-all duration-200 ${otherClasses}`}
+      className={`background-light800_dark300 relative flex min-h-[56px] grow items-center gap-1 rounded-xl px-4 ${otherClasses}`}
     >
       {iconPosition === "left" && (
         <Image
           src={imgSrc}
-          alt="search Icon"
+          alt="search icon"
           width={24}
           height={24}
           className="cursor-pointer"
@@ -69,15 +69,13 @@ const LocalSearchBar = ({
         type="text"
         placeholder={placeholder}
         value={search}
-        className="paragraph-regular no-focus text-dark100_light900 placeholder text-dark400_light700 border-none bg-transparent shadow-none outline-none"
-        onChange={(e) => {
-          setSearch(e.target.value);
-        }}
+        onChange={(e) => setSearch(e.target.value)}
+        className="paragraph-regular no-focus placeholder text-dark400_light700 border-none bg-transparent shadow-none outline-none"
       />
       {iconPosition === "right" && (
         <Image
           src={imgSrc}
-          alt="search Icon"
+          alt="search icon"
           width={24}
           height={24}
           className="cursor-pointer"

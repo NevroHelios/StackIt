@@ -47,17 +47,16 @@ const Filters = ({
   };
 
   return (
-    <div
-      className={`mt-10 flex flex-wrap-reverse gap-3 md:flex-wrap ${!jobFilter && "hidden"
-        }`}
-    >
-      {filters.map((filter, index) => (
+    <div className="mt-10 flex flex-wrap gap-3">
+      {filters.map((filter) => (
         <Button
           key={filter.value}
           onClick={() => handleTypeClick(filter.value)}
-          className={`body-medium mb-0.5 mr-0.5 rounded-lg px-6 py-3 capitalize shadow-none md:mb-0 md:mr-0 line-clamp-1 transition-colors duration-200 ${active === filter.value
-              ? "bg-primary-100 text-primary-500 dark:bg-dark-400 dark:hover:bg-dark-400"
-              : "bg-light-800 text-light-500 hover:bg-light-700 dark:bg-dark-300 dark:text-light-500 dark:hover:bg-dark-200"
+          className={`body-medium rounded-lg px-6 py-3 capitalize shadow-none transition-colors
+            ${
+              active === filter.value
+                ? "bg-primary-100 text-primary-500 hover:bg-primary-100 dark:bg-dark-400 dark:text-primary-500 dark:hover:bg-dark-400"
+                : "bg-light-800 text-light-500 hover:bg-light-700 dark:bg-dark-300 dark:text-light-500 dark:hover:bg-dark-200"
             }`}
         >
           {filter.name}

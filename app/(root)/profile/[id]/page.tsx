@@ -24,10 +24,10 @@ const ProfileDetailPage = async ({
   return (
     <>
       <div className="flex flex-col-reverse items-start justify-between sm:flex-row">
-        <div className="flex flex-col items-start gap-4 lg:flex-row">
+        <div className="flex items-start gap-4 lg:flex-row">
           <Image
             src={user.picture}
-            alt="user"
+            alt="profile picture"
             width={140}
             height={140}
             className="rounded-full object-cover"
@@ -53,7 +53,7 @@ const ProfileDetailPage = async ({
               )}
               <ProfileLink
                 imgUrl="/assets/icons/calendar.svg"
-                title={getActualDateAndMonth(user.joinedAt.toString())}
+                title={`Joined ${getActualDateAndMonth(user.joinedAt)}`}
               />
             </div>
             {user.bio && (
@@ -67,7 +67,7 @@ const ProfileDetailPage = async ({
           <SignedIn>
             {clerkId === user.clerkId && (
               <Link href="/profile/edit">
-                <Button className="paragraph-medium btn-secondary text-dark300_light900 min-h-[46px] min-w-[175px] px-4 py-3">
+                <Button className="paragraph-medium btn-secondary text-dark300_light900 min-h-[46px] min-w-[175px] rounded-lg px-4 py-3">
                   Edit Profile
                 </Button>
               </Link>
@@ -91,14 +91,17 @@ const ProfileDetailPage = async ({
               Answers
             </TabsTrigger>
           </TabsList>
-          <TabsContent value="top-posts">
+          <TabsContent
+            value="top-posts"
+            className="mt-5 flex w-full flex-col gap-6"
+          >
             <QuestionsTab
               userId={user._id}
               clerkId={clerkId}
               searchParams={searchParams}
             />
           </TabsContent>
-          <TabsContent value="answers">
+          <TabsContent value="answers" className="mt-5 flex w-full flex-col gap-6">
             <AnswersTab
               userId={user._id}
               clerkId={clerkId}

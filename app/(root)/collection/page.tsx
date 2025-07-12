@@ -40,10 +40,7 @@ export default async function CollectionPage({
           placeholder="Search for questions"
           otherClasses="flex-1"
         />
-        <Filter
-          filters={QuestionFilters}
-          otherClasses="min-h-[56px] sm:min-w-[170px]"
-        />
+        <Filter filters={QuestionFilters} />
       </div>
       <div className="mt-10 flex w-full flex-col gap-6 ">
         {result.questions.length > 0 ? (
@@ -62,7 +59,7 @@ export default async function CollectionPage({
           ))
         ) : (
           <NoResult
-            title="These's no saved questions to show"
+            title="There's no saved questions to show"
             description="Be the first to break the silence! 🚀 Ask a Question and kickstart the
           discussion. our query could be the next big thing others learn from. Get
           involved! 💡"

@@ -43,14 +43,14 @@ const QuestionCard = ({
 }: Props) => {
   const showActionButtons = clerkId && clerkId === author.clerkId;
   return (
-    <div className="card-wrapper rounded-[10px] p-4 sm:p-6 lg:p-9 lg:px-11 hover:shadow-lg transition-all duration-200 border border-light-800 dark:border-dark-300">
+    <div className="card-wrapper rounded-[10px] p-9 sm:p-11 transition-all duration-200 hover:shadow-lg">
       <div className="flex flex-col-reverse items-start justify-between gap-5 sm:flex-row">
-        <div className="flex-1 w-full">
-          <span className="subtle-regular text-dark400_light700 line-clamp-1 flex sm:hidden mb-2">
+        <div>
+          <span className="subtle-regular text-dark400_light700 line-clamp-1 flex sm:hidden">
             {getTimestamp(createdAt)}
           </span>
           <Link href={`/question/${_id}`}>
-            <h3 className="sm:h3-semibold base-semibold text-dark200_light900 line-clamp-2 flex-1 hover:text-primary-500 transition-colors mb-1">
+            <h3 className="sm:h3-semibold base-semibold text-dark200_light900 line-clamp-1 flex-1 hover:text-primary-500">
               {title}
             </h3>
           </Link>
@@ -68,15 +68,15 @@ const QuestionCard = ({
       </div>
       <div className="flex-between mt-6 w-full flex-wrap gap-3">
         <Metric
-          imgUrl={author.picture || "/assets/icons/avatar.svg"}
-          alt="User"
+          imgUrl={author.picture}
+          alt="user"
           value={author.name}
-          title={`- asked ${getTimestamp(createdAt)}`}
-          href={`/profile/${author.clerkId}`}
+          title={` - asked ${getTimestamp(createdAt)}`}
+          href={`/profile/${author._id}`}
           isAuthor
           textStyles="body-medium text-dark400_light700"
         />
-        <div className="flex items-center gap-3 max-sm:flex-wrap max-sm:justify-start max-sm:w-full max-sm:mt-3">
+        <div className="flex items-center gap-3 max-sm:flex-wrap max-sm:justify-start">
           <Metric
             imgUrl="/assets/icons/like.svg"
             alt="Upvotes"
@@ -86,14 +86,14 @@ const QuestionCard = ({
           />
           <Metric
             imgUrl="/assets/icons/message.svg"
-            alt="Message"
+            alt="message"
             value={getFormattedNumber(answers.length)}
             title=" Answers"
             textStyles="small-medium text-dark400_light800"
           />
           <Metric
             imgUrl="/assets/icons/eye.svg"
-            alt="Eye"
+            alt="eye"
             value={getFormattedNumber(views)}
             title=" Views"
             textStyles="small-medium text-dark400_light800"

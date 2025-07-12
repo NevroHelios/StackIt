@@ -24,7 +24,7 @@ const AllAnswers = async ({
   page,
 }: Props) => {
   const result = await getAnswers({
-    questionId: JSON.parse(questionId),
+    questionId,
     sortBy: filter,
     page,
   });

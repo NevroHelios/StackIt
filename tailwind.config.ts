@@ -24,25 +24,25 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          500: "#FF7000",
-          100: "#FFF1E6",
+          500: "#3B82F6",
+          100: "#DBEAFE",
         },
         dark: {
-          100: "#000000",
-          200: "#0F1117",
-          300: "#151821",
-          400: "#212734",
-          500: "#101012",
+          100: "#020617",
+          200: "#0F172A",
+          300: "#1E293B",
+          400: "#334155",
+          500: "#475569",
         },
         light: {
           900: "#FFFFFF",
-          800: "#F4F6F8",
-          850: "#FDFDFD",
-          700: "#DCE3F1",
-          500: "#7B8EC8",
-          400: "#858EAD",
+          800: "#F8FAFC",
+          850: "#F1F5F9",
+          700: "#E2E8F0",
+          500: "#64748B",
+          400: "#94A3B8",
         },
-        "accent-blue": "#1DA1F2",
+        "accent-blue": "#60A5FA",
       },
       fontFamily: {
         inter: ["var(--font-inter)"],
@@ -59,6 +59,8 @@ module.exports = {
       backgroundImage: {
         "auth-dark": "url('/assets/images/auth-dark.png')",
         "auth-light": "url('/assets/images/auth-light.png')",
+        "primary-gradient": "linear-gradient(129deg, #3b82f6 0%, #60a5fa 100%)",
+        "dark-gradient": "linear-gradient(232deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.9) 100%)",
       },
       screens: {
         xs: "420px",

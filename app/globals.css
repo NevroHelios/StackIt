@@ -117,7 +117,7 @@ body {
   }
 
   .card-wrapper {
-    @apply dark:dark-gradient bg-light-900 shadow-light-100 dark:shadow-dark-100 border border-light-800 dark:border-dark-300;
+    @apply bg-light-900 dark:bg-dark-200 shadow-light-100 dark:shadow-dark-100 border border-light-800 dark:border-dark-300;
   }
 
   .btn {
@@ -156,18 +156,6 @@ body {
     @apply w-full max-w-full overflow-x-auto;
   }
 
-  .primary-gradient {
-    background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%);
-  }
-
-  .dark-gradient {
-    background: linear-gradient(
-      232deg,
-      rgba(23, 28, 35, 0.41) 0%,
-      rgba(19, 22, 28, 0.7) 100%
-    );
-  }
-
   .tab {
     @apply min-h-full bg-light-800 text-light-500 data-[state=active]:bg-primary-100 data-[state=active]:text-primary-500 dark:bg-dark-400 dark:data-[state=active]:bg-dark-300 !important;
   }
@@ -191,10 +179,7 @@ body {
 }
 
 .primary-text-gradient {
-  background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  @apply bg-primary-gradient bg-clip-text text-transparent;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -204,11 +189,11 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #fff
+  background: #fff;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #ff7000;
+  background: #3b82f6;
   border-radius: 50px;
 }
 
@@ -218,7 +203,7 @@ body {
 
 /* Markdown Start */
 .markdown a {
-  color: #1da1f2;
+  color: #60a5fa;
 }
 
 .markdown a,
@@ -240,7 +225,7 @@ code {
   hyphens: auto;
 
   padding: 2px;
-  color: #ff7000 !important;
+  color: #3b82f6 !important;
 }
 
 .markdown pre {

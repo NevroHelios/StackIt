@@ -58,99 +58,66 @@ const JobCard = ({
     }${country || ""}`;
 
   return (
-    <div className="card-wrapper rounded-[10px] hover:shadow-lg transition-shadow duration-200">
-      <div className="flex flex-col sm:flex-row gap-4 p-6">
-        <div className="hidden sm:block shrink-0">
-          <JobBadge data={{ website: employerWebsite, logo: imageUrl }} />
-        </div>
-
-        <div className="flex-1">
-          <div className="block sm:hidden mb-4">
-            <div className="flex flex-col-reverse items-end">
-              <JobBadge data={{ location, country }} isLocation />
+    <section className="card-wrapper rounded-[10px] p-6">
+      <div className="flex w-full gap-4">
+        <Image
+          src={imageUrl}
+          alt="company logo"
+          width={64}
+          height={64}
+          className="rounded-[10px]"
+        />
+        <div className="w-full">
+          <div className="flex-between">
+            <h3 className="sm:h3-semibold base-semibold text-dark200_light900 line-clamp-1">
+              {title}
+            </h3>
+            <div className="hidden items-center gap-2 md:flex">
+              {location && (
+                <Image
+                  src={`/assets/icons/location.svg`}
+                  alt="location"
+                  width={20}
+                  height={20}
+                />
+              )}
+              <p className="body-medium text-light-500">{location}</p>
             </div>
           </div>
-          <div className="flex flex-col-reverse items-start justify-between gap-5 sm:flex-row">
-            <div className="flex-1">
-              <JobBadge
-                data={{ website: employerWebsite, logo: imageUrl }}
-                badgeStyles="mb-6 sm:hidden"
-              />
-              <div className="flex flex-col">
-                <h3 className="sm:h3-semibold base-semibold text-dark200_light900 line-clamp-2 hover:text-primary-500 transition-colors">
-                  {title}
-                </h3>
-                <h4 className="paragraph-medium text-dark400_light700">
-                  {employerName}
-                </h4>
-                <p className="body-regular mt-0.5 capitalize text-light-500">
-                  posted {getTimestamp(new Date(postedAt))}
-                </p>
-              </div>
-            </div>
-            <JobBadge
-              data={{ location, country }}
-              badgeStyles="hidden sm:flex shrink-0"
-              isLocation
-            />
-          </div>
-
-          <p className="body-regular text-dark200_light900 mt-3.5 line-clamp-3">
-            {description.slice(0, 2000)}
+          <p className="body-regular text-dark500_light500 mt-2 line-clamp-2">
+            {description.slice(0, 200)}
           </p>
-
-          {requiredSkills && requiredSkills.length > 0 && (
-            <div className="mt-3.5 flex flex-wrap gap-2">
-              {requiredSkills.map((tag) => (
-                <Badge
-                  key={tag}
-                  className="subtle-medium background-light800_dark300 text-light400_light500 rounded-md border-none px-4 py-2 uppercase hover:bg-primary-100 hover:text-primary-500 transition-colors"
-                >
-                  {tag}
+          <div className="flex-between mt-8 flex-wrap gap-y-6">
+            <div className="flex gap-2">
+              <Badge className="subtle-medium background-light800_dark300 text-light400_light500 rounded-md border-none px-4 py-2 uppercase">
+                {employmentTypeConverter(employmentType)}
+              </Badge>
+              {isRemote && (
+                <Badge className="subtle-medium background-light800_dark300 text-light400_light500 rounded-md border-none px-4 py-2 uppercase">
+                  Remote
                 </Badge>
-              ))}
+              )}
+              {getFormattedSalary(salary) && (
+                <Badge className="subtle-medium background-light800_dark300 text-light400_light500 rounded-md border-none px-4 py-2 uppercase">
+                  {getFormattedSalary(salary)}
+                </Badge>
+              )}
             </div>
-          )}
-
-          <div className="flex-between mt-6 w-full flex-wrap gap-3">
-            <div className="flex items-center gap-3 max-sm:flex-wrap max-sm:justify-start">
-              <Metric
-                imgUrl="/assets/icons/briefcase.svg"
-                alt="briefcase"
-                value={employmentTypeConverter(employmentType)}
-                textStyles="small-medium text-light-500"
-              />
-              <Metric
-                imgUrl="/assets/icons/people.svg"
-                alt="people"
-                value={isRemote ? "Remote" : "On-Site"}
-                textStyles="small-medium text-light-500"
-              />
-              <Metric
-                imgUrl="/assets/icons/currency-dollar-circle.svg"
-                alt="dollar circle"
-                value={getFormattedSalary(salary) || "TBD"}
-                textStyles="small-medium text-light-500"
-              />
-            </div>
-            <Link
-              href={applyLink || "/"}
-              className="flex items-center gap-2 hover:opacity-80 transition-opacity"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <p className="body-semibold primary-text-gradient">View job</p>
+            <div className="flex items-center gap-2">
               <Image
-                alt="arrow up right"
+                src={`/assets/icons/clock-2.svg`}
+                alt="clock"
                 width={20}
                 height={20}
-                src="/assets/icons/arrow-up-right.svg"
               />
-            </Link>
+              <p className="body-medium text-light-500">
+                {getTimestamp(new Date(postedAt))}
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
