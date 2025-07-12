@@ -1,4 +1,5 @@
 import { authMiddleware } from "@clerk/nextjs";
+import { NextRequest } from "next/server";
 
 export default authMiddleware({
   publicRoutes: [
@@ -10,8 +11,20 @@ export default authMiddleware({
     "/profile/:id",
     "/community",
     "/jobs",
+    "/ask-question",
   ],
   ignoredRoutes: ["/api/webhook", "/api/chatgpt"],
+  beforeAuth: (req: NextRequest) => {
+    // Handle forwarded headers for tunnels
+    const forwardedHost = req.headers.get("x-forwarded-host");
+    const forwardedProto = req.headers.get("x-forwarded-proto");
+
+    if (forwardedHost && forwardedProto) {
+      // Trust the forwarded headers
+      req.headers.set("host", forwardedHost);
+      req.headers.set("x-forwarded-proto", forwardedProto);
+    }
+  },
 });
 
 export const config = {
