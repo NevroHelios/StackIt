@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import Metric from "@/components/shared/Metric";
 
-import { getFormattedNumber, getTimestamp } from "@/lib/utils";
+import { formatNumber, getTimestamp } from "@/lib/utils";
 import { SignedIn } from "@clerk/nextjs";
 import EditDeleteAction from "../shared/EditDeleteAction";
 
@@ -67,7 +67,7 @@ const AnswerCard = ({
           <Metric
             imgUrl="/assets/icons/like.svg"
             alt="Upvotes"
-            value={getFormattedNumber(upvotes)}
+            value={formatNumber(upvotes)}
             title=" Votes"
             textStyles="small-medium text-dark400_light800"
           />

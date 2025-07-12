@@ -7,7 +7,7 @@ import {
   upvoteQuestion,
 } from "@/lib/actions/question.action";
 import { toggleSaveQuestion } from "@/lib/actions/user.action";
-import { getFormattedNumber } from "@/lib/utils";
+import { formatNumber } from "@/lib/utils";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -132,7 +132,7 @@ const Votes = ({
           />
           <div className="flex-center background-light700_dark400 min-w-[18px] rounded-sm p-1">
             <p className="subtle-medium text-dark400_light900">
-              {getFormattedNumber(upvotes)}
+              {formatNumber(upvotes)}
             </p>
           </div>
         </div>
@@ -153,7 +153,7 @@ const Votes = ({
           />
           <div className="flex-center background-light700_dark400 min-w-[18px] rounded-sm p-1">
             <p className="subtle-medium text-dark400_light900">
-              {getFormattedNumber(downvotes)}
+              {formatNumber(downvotes)}
             </p>
           </div>
         </div>

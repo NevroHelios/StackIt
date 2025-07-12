@@ -12,7 +12,7 @@ import type { Metadata } from "next";
 import { getCountryFilters, getJobs } from "@/lib/actions/job.action";
 
 export const metadata: Metadata = {
-  title: "Jobs — DevOverflow",
+  title: "Jobs — StackIt",
 };
 
 const Page = async ({ searchParams }: SearchParamsProps) => {

@@ -6,7 +6,7 @@ import Votes from "@/components/shared/Votes";
 import { ITag } from "@/database/tag.model";
 import { getQuestionById } from "@/lib/actions/question.action";
 import { getUserById } from "@/lib/actions/user.action";
-import { getFormattedNumber, getTimestamp } from "@/lib/utils";
+import { formatNumber, getTimestamp } from "@/lib/utils";
 import { URLProps } from "@/types";
 import { auth } from "@clerk/nextjs";
 import { Metadata, ResolvingMetadata } from "next";
@@ -82,14 +82,14 @@ const QuestionDetailPage = async ({
         <Metric
           imgUrl="/assets/icons/message.svg"
           alt="Message"
-          value={getFormattedNumber(question.answers.length)}
+          value={formatNumber(question.answers.length)}
           title=" Answers"
           textStyles="small-medium text-dark400_light800"
         />
         <Metric
           imgUrl="/assets/icons/eye.svg"
           alt="Eye"
-          value={getFormattedNumber(question.views)}
+          value={formatNumber(question.views)}
           title=" Views"
           textStyles="small-medium text-dark400_light800"
         />

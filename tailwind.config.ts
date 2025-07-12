@@ -10,60 +10,98 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: {
-        DEFAULT: "1rem",
-        sm: "2rem",
-        lg: "4rem",
-        xl: "5rem",
-        "2xl": "6rem",
-      },
+      padding: "2rem",
       screens: {
         "2xl": "1400px",
       },
     },
     extend: {
       colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
         primary: {
-          500: "#3B82F6",
-          100: "#DBEAFE",
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+          50: '#ecfdf5',
+          100: '#d1fae5',
+          200: '#a7f3d0',
+          300: '#6ee7b7',
+          400: '#34d399',
+          500: '#10b981',
+          600: '#059669',
+          700: '#047857',
+          800: '#065f46',
+          900: '#064e3b',
         },
-        dark: {
-          100: "#020617",
-          200: "#0F172A",
-          300: "#1E293B",
-          400: "#334155",
-          500: "#475569",
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
         },
-        light: {
-          900: "#FFFFFF",
-          800: "#F8FAFC",
-          850: "#F1F5F9",
-          700: "#E2E8F0",
-          500: "#64748B",
-          400: "#94A3B8",
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
         },
-        "accent-blue": "#60A5FA",
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        emerald: {
+          50: '#ecfdf5',
+          100: '#d1fae5',
+          200: '#a7f3d0',
+          300: '#6ee7b7',
+          400: '#34d399',
+          500: '#10b981',
+          600: '#059669',
+          700: '#047857',
+          800: '#065f46',
+          900: '#064e3b',
+        },
+        green: {
+          50: '#f0fdf4',
+          100: '#dcfce7',
+          200: '#bbf7d0',
+          300: '#86efac',
+          400: '#4ade80',
+          500: '#22c55e',
+          600: '#16a34a',
+          700: '#15803d',
+          800: '#166534',
+          900: '#14532d',
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
         inter: ["var(--font-inter)"],
         spaceGrotesk: ["var(--font-spaceGrotesk)"],
       },
-      boxShadow: {
-        "light-100":
-          "0px 12px 20px 0px rgba(184, 184, 184, 0.03), 0px 6px 12px 0px rgba(184, 184, 184, 0.02), 0px 2px 4px 0px rgba(184, 184, 184, 0.03)",
-        "light-200": "10px 10px 20px 0px rgba(218, 213, 213, 0.10)",
-        "light-300": "-10px 10px 20px 0px rgba(218, 213, 213, 0.10)",
-        "dark-100": "0px 2px 10px 0px rgba(46, 52, 56, 0.10)",
-        "dark-200": "2px 0px 20px 0px rgba(39, 36, 36, 0.04)",
-      },
       backgroundImage: {
-        "auth-dark": "url('/assets/images/auth-dark.png')",
-        "auth-light": "url('/assets/images/auth-light.png')",
-        "primary-gradient": "linear-gradient(129deg, #3b82f6 0%, #60a5fa 100%)",
-        "dark-gradient": "linear-gradient(232deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.9) 100%)",
+        "primary-gradient": "linear-gradient(135deg, #10b981 0%, #34d399 50%, #6ee7b7 100%)",
+        "emerald-gradient": "linear-gradient(135deg, #064e3b 0%, #047857 25%, #10b981 50%, #34d399 75%, #6ee7b7 100%)",
+        "light-gradient": "linear-gradient(135deg, #ecfdf5 0%, #d1fae5 50%, #a7f3d0 100%)",
+        "dark-gradient": "linear-gradient(232deg, rgba(6, 78, 59, 0.9) 0%, rgba(4, 120, 87, 0.8) 50%, rgba(16, 185, 129, 0.1) 100%)",
       },
-      screens: {
-        xs: "420px",
+      backdropBlur: {
+        xs: '2px',
       },
       keyframes: {
         "accordion-down": {
@@ -74,6 +112,36 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
+        "fade-in": {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
+        "fade-in-up": {
+          from: { opacity: 0, transform: "translateY(20px)" },
+          to: { opacity: 1, transform: "translateY(0)" },
+        },
+        "slide-in-right": {
+          from: { opacity: 0, transform: "translateX(20px)" },
+          to: { opacity: 1, transform: "translateX(0)" },
+        },
+        "scale-in": {
+          from: { opacity: 0, transform: "scale(0.9)" },
+          to: { opacity: 1, transform: "scale(1)" },
+        },
+        "bounce-in": {
+          "0%": { opacity: 0, transform: "scale(0.3)" },
+          "50%": { opacity: 1, transform: "scale(1.05)" },
+          "70%": { transform: "scale(0.9)" },
+          "100%": { opacity: 1, transform: "scale(1)" },
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        "pulse-green": {
+          "0%, 100%": { boxShadow: "0 0 0 0 rgba(16, 185, 129, 0.7)" },
+          "70%": { boxShadow: "0 0 0 10px rgba(16, 185, 129, 0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -83,6 +151,8 @@ module.exports = {
         "slide-in-right": "slide-in-right 0.6s ease-out forwards",
         "scale-in": "scale-in 0.6s ease-out forwards",
         "bounce-in": "bounce-in 0.8s ease-out forwards",
+        "float": "float 3s ease-in-out infinite",
+        "pulse-green": "pulse-green 2s infinite",
       },
     },
   },
