@@ -4,14 +4,14 @@ export const POST = async (request: NextRequest) => {
   const { question } = await request.json();
 
   try {
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
       },
       body: JSON.stringify({
-        model: "gpt-3.5-turbo",
+        model: "llama-3.3-70b-versatile",
         messages: [
           {
             role: "system",
