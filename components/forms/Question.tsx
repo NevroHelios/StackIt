@@ -192,6 +192,7 @@ const Question = ({ mongoUserId, type, questionDetails }: Props) => {
                       "lists",
                       "link",
                       "image",
+                      "emoticons",
                       "charmap",
                       "preview",
                       "anchor",
@@ -205,8 +206,8 @@ const Question = ({ mongoUserId, type, questionDetails }: Props) => {
                     ],
                     toolbar:
                       "undo redo | " +
-                      "codesample | bold italic forecolor strikethrough | link image media | alignleft aligncenter |" +
-                      "alignright alignjustify | bullist numlist | emoticons",
+                      "codesample | bold italic forecolor strikethrough | link image emoticons charmap | alignleft aligncenter |" +
+                      "alignright alignjustify | bullist numlist",
                     content_style: "body { font-family:Inter; font-size:16px }",
                     skin: mode === "dark" ? "oxide-dark" : "oxide",
                     content_css: mode === "dark" ? "dark" : "light",
