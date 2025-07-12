@@ -101,15 +101,15 @@ const Answer = ({ authorId, question, questionId }: Props) => {
   };
 
   return (
-    <div className="">
-      <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center sm:gap-2">
+    <div className="w-full max-w-full overflow-hidden">
+      <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center sm:gap-2">
         <h4 className="paragraph-semibold text-dark400_light800">
           Write your answer here
         </h4>
         <Button
           onClick={generateAIAnswer}
           disabled={isSubmitting}
-          className="btn light-border-2 gap-1.5 rounded-md px-4 py-2.5 text-primary-500 shadow-none dark:text-primary-500 hover:bg-primary-100 hover:text-primary-600 transition-colors"
+          className="btn light-border-2 gap-1.5 rounded-md px-4 py-2.5 text-primary-500 shadow-none dark:text-primary-500 hover:bg-primary-100 hover:text-primary-600 transition-colors max-sm:w-full max-sm:justify-center"
           type="submit"
         >
           {isSubmittingAi ? (
@@ -130,7 +130,7 @@ const Answer = ({ authorId, question, questionId }: Props) => {
       </div>
       <Form {...form}>
         <form
-          className="mt-6 flex flex-col gap-12"
+          className="mt-6 flex flex-col gap-8"
           onSubmit={form.handleSubmit(handleCreateAnswer)}
         >
           <FormField
@@ -176,6 +176,12 @@ const Answer = ({ authorId, question, questionId }: Props) => {
                         "body { font-family:Inter; font-size:16px }",
                       skin: mode === "dark" ? "oxide-dark" : "oxide",
                       content_css: mode === "dark" ? "dark" : "light",
+                      mobile: {
+                        theme: "mobile",
+                        plugins: ["autosave", "lists"],
+                        toolbar: ["undo", "redo", "bold", "italic", "link"]
+                      },
+                      responsive: true,
                     }}
                   />
                 </FormControl>
@@ -183,11 +189,11 @@ const Answer = ({ authorId, question, questionId }: Props) => {
               </FormItem>
             )}
           />
-          <div className="flex justify-end">
+          <div className="flex justify-end max-sm:justify-center">
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="primary-gradient w-fit text-white"
+              className="primary-gradient w-fit text-white hover:opacity-90 transition-opacity max-sm:w-full"
             >
               {isSubmitting ? "Submitting..." : "Submit"}
             </Button>

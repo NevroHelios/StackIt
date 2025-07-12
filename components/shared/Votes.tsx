@@ -115,9 +115,9 @@ const Votes = ({
   }, [itemId, userId, pathname, router]);
 
   return (
-    <div className="flex gap-5">
-      <div className="flex-center gap-2.5">
-        <div className="flex-center gap-1.5">
+    <div className="flex gap-3 max-sm:gap-2 flex-wrap max-sm:flex-nowrap">
+      <div className="flex-center gap-1.5 max-sm:gap-1">
+        <div className="flex-center gap-1">
           <Image
             src={
               hasUpVoted
@@ -127,7 +127,7 @@ const Votes = ({
             alt="upVote"
             height={18}
             width={18}
-            className="cursor-pointer"
+            className="cursor-pointer hover:opacity-80 transition-opacity"
             onClick={() => handleVote("upvote")}
           />
           <div className="flex-center background-light700_dark400 min-w-[18px] rounded-sm p-1">
@@ -137,8 +137,8 @@ const Votes = ({
           </div>
         </div>
       </div>
-      <div className="flex-center gap-2.5">
-        <div className="flex-center gap-1.5">
+      <div className="flex-center gap-1.5 max-sm:gap-1">
+        <div className="flex-center gap-1">
           <Image
             src={
               hasDownVoted
@@ -148,7 +148,7 @@ const Votes = ({
             alt="downVote"
             height={18}
             width={18}
-            className="cursor-pointer"
+            className="cursor-pointer hover:opacity-80 transition-opacity"
             onClick={() => handleVote("downvote")}
           />
           <div className="flex-center background-light700_dark400 min-w-[18px] rounded-sm p-1">
@@ -165,10 +165,10 @@ const Votes = ({
               ? "/assets/icons/star-filled.svg"
               : "/assets/icons/star-red.svg"
           }
-          alt="downVote"
+          alt="save"
           height={18}
           width={18}
-          className="cursor-pointer"
+          className="cursor-pointer hover:opacity-80 transition-opacity"
           onClick={handleSave}
         />
       )}

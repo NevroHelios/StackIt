@@ -4,6 +4,11 @@
 
 @import url("../styles/theme.css");
 
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
 body {
   font-family: "Inter", sans-serif;
   overflow-x: hidden;
@@ -42,6 +47,26 @@ body {
 
   .markdown {
     @apply prose max-w-full prose-headings:text-dark-400 prose-h1:text-dark-300 prose-h2:text-dark-300 prose-p:text-dark-500 prose-ol:text-dark-500 prose-ul:text-dark-500 dark:prose-headings:text-white dark:prose-p:text-light-700 dark:prose-strong:text-white dark:prose-ol:text-light-700 dark:prose-ul:text-light-500;
+  }
+
+  .markdown pre {
+    @apply w-full max-w-full overflow-x-auto rounded-lg;
+  }
+
+  .markdown code {
+    @apply break-words overflow-x-auto;
+  }
+
+  .markdown pre code {
+    @apply whitespace-pre-wrap break-words overflow-x-auto;
+  }
+
+  .markdown table {
+    @apply w-full max-w-full overflow-x-auto block whitespace-nowrap;
+  }
+
+  .markdown img {
+    @apply w-full max-w-full overflow-x-auto;
   }
 
   .primary-gradient {
@@ -134,14 +159,38 @@ code {
 .markdown pre {
   display: grid;
   width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  border-radius: 8px;
 }
 
 .markdown pre code {
   width: 100%;
   display: block;
   overflow-x: auto;
-
   color: inherit !important;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.markdown code {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+.markdown table {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  display: block;
+  white-space: nowrap;
+}
+
+.markdown img {
+  max-width: 100%;
+  height: auto;
 }
 /* Markdown End */
 

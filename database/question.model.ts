@@ -24,6 +24,10 @@ const QuestionSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
 });
 
+QuestionSchema.index({ createdAt: 1 });
+QuestionSchema.index({ views: -1 });
+QuestionSchema.index({ tags: 1 });
+
 const Question = models.Question || model("Question", QuestionSchema);
 
 export default Question;

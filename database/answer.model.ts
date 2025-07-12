@@ -18,6 +18,9 @@ const AnswerSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
 });
 
+AnswerSchema.index({ createdAt: 1 });
+AnswerSchema.index({ question: 1 });
+
 const Answer = models.Answer || model("Answer", AnswerSchema);
 
 export default Answer;

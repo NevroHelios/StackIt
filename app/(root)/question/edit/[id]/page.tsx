@@ -16,8 +16,11 @@ const EditQuestionPage = async ({ params: { id } }: Props) => {
 
   const { question } = await getQuestionById({ questionId: id });
   return (
-    <>
-      <h1 className="h1-bold text-dark100_light900">Edit Question</h1>
+    <div className="max-w-4xl mx-auto">
+      <h1 className="h1-bold text-dark100_light900 mb-2">Edit Question</h1>
+      <p className="body-regular text-dark500_light700 mb-8">
+        Update your question details, content, and tags.
+      </p>
       <div className="mt-9">
         <Question
           type="edit"
@@ -25,7 +28,7 @@ const EditQuestionPage = async ({ params: { id } }: Props) => {
           questionDetails={JSON.stringify(question)}
         />
       </div>
-    </>
+    </div>
   );
 };
 

@@ -29,28 +29,28 @@ const AllAnswers = async ({
     page,
   });
   return (
-    <div className="mt-11">
-      <div className="flex items-center justify-between">
-        <h3 className="primary-text-gradient">{totalAnswers} Answers </h3>
+    <div className="mt-11 w-full max-w-full overflow-hidden">
+      <div className="flex items-center justify-between mb-6 max-sm:flex-col max-sm:items-start max-sm:gap-4">
+        <h3 className="primary-text-gradient text-lg font-semibold">{totalAnswers} Answers</h3>
         <Filter filters={AnswerFilters} />
       </div>
-      <div className="">
+      <div className="space-y-6">
         {result.answers.map((answer) => (
-          <article key={answer._id} className="light-border border-b py-10 hover:bg-light-850 dark:hover:bg-dark-300 transition-colors rounded-lg px-4">
-            <div className="mb-8 flex flex-col-reverse justify-between gap-5 sm:flex-row sm:items-center sm:gap-2">
+          <article key={answer._id} className="light-border border-b py-8 hover:bg-light-850 dark:hover:bg-dark-300 transition-colors rounded-lg px-4 w-full max-w-full overflow-hidden">
+            <div className="mb-6 flex flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center sm:gap-2">
               <Link
                 href={`/profile/${answer.author.clerkId}`}
-                className="flex flex-1 items-start gap-1 sm:items-center hover:opacity-80 transition-opacity"
+                className="flex flex-1 items-start gap-2 sm:items-center hover:opacity-80 transition-opacity min-w-0"
               >
                 <Image
                   src={answer.author.picture}
                   height={18}
                   width={18}
                   alt="profile"
-                  className="rounded-full object-cover max-sm:mt-0.5"
+                  className="rounded-full object-cover max-sm:mt-0.5 flex-shrink-0"
                 />
-                <div className="flex flex-col sm:flex-row sm:items-center">
-                  <p className="body-semibold text-dark300_light700">
+                <div className="flex flex-col sm:flex-row sm:items-center min-w-0 flex-1">
+                  <p className="body-semibold text-dark300_light700 truncate">
                     {answer.author.name}
                   </p>
                   <p className="small-regular text-dark400_light500 ml-0.5 mt-0.5 line-clamp-1">
@@ -59,7 +59,7 @@ const AllAnswers = async ({
                   </p>
                 </div>
               </Link>
-              <div className="flex justify-end">
+              <div className="flex justify-end max-sm:justify-start flex-shrink-0">
                 <Votes
                   type="answer"
                   itemId={JSON.stringify(answer._id)}
@@ -71,7 +71,9 @@ const AllAnswers = async ({
                 />
               </div>
             </div>
-            <ParseHTML data={answer.content} />
+            <div className="w-full max-w-full overflow-hidden">
+              <ParseHTML data={answer.content} />
+            </div>
           </article>
         ))}
       </div>
