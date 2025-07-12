@@ -12,34 +12,45 @@ import {
   DeleteAnswerParams,
   GetAnswersParams,
 } from "./shared.types";
+import Notification from "@/database/notification.model";
 
 export async function createAnswer(params: CreateAnswerParams) {
   try {
     connectToDatabase();
 
-    const { content, question, author, path } = params;
-    const newAnswer = await Answer.create({ content, question, author });
+    const { content, author, question, path } = params;
 
-    // * Add new answer to the question answers array
+    const newAnswer = await Answer.create({
+      content,
+      author,
+      question,
+    });
+
+    // Add the answer to the question's answers array
     const questionObject = await Question.findByIdAndUpdate(question, {
       $push: { answers: newAnswer._id },
-    }).populate("author", "_id");
+    });
 
-    // Todo: add interaction...
     await Interaction.create({
       user: author,
       action: "answer",
-      answer: newAnswer._id,
       question,
+      answer: newAnswer._id,
       tags: questionObject.tags,
     });
 
-    const answerAuthor = newAnswer.author.toString();
-    const questionAuthor = questionObject.author._id.toString();
-
-    if (answerAuthor !== questionAuthor) {
-      await User.findByIdAndUpdate(author, { $inc: { reputation: 10 } });
-    }
+    // Create a notification for the question author
+    await Notification.create({
+      recipient: questionObject.author,
+      trigger: author,
+      type: 'new_answer',
+      question: questionObject._id,
+      answer: newAnswer._id,
+    });
+    
+    await Question.findByIdAndUpdate(question, {
+      $inc: { upvotes: 1 },
+    });
 
     revalidatePath(path);
   } catch (error) {

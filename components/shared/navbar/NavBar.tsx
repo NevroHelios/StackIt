@@ -1,12 +1,16 @@
-import { SignedIn, UserButton } from "@clerk/nextjs";
+"use client";
+
+import { SignedIn, UserButton, useAuth } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import GlobalSearch from "../search/GlobalSearch";
 import MobileNav from "./MobileNav";
-import Theme from "./Theme";
 import Aurora from "@/src/blocks/Backgrounds/Aurora/Aurora";
+import Notifications from "./Notifications";
 
 const NavBar = () => {
+  const { userId } = useAuth();
+
   return (
     <nav className="fixed z-50 w-full animate-fade-in">
       <div className="absolute inset-0 h-full w-full">
@@ -42,9 +46,11 @@ const NavBar = () => {
         </div>
         
         <div className="flex-between gap-5 animate-fade-in-up" style={{ animationDelay: "400ms" }}>
-          <div className="transition-transform duration-200 hover:scale-110">
-            <Theme />
-          </div>
+          {userId && (
+            <div className="transition-transform duration-200 hover:scale-110">
+              <Notifications userId={userId} />
+            </div>
+          )}
           <SignedIn>
             <div className="relative group">
               <UserButton

@@ -180,163 +180,29 @@ const GlobalSearch = () => {
   };
 
   return (
-    <>
-      {/* Enhanced backdrop overlay */}
-      {isExpanded && (
-        <div 
-          className="fixed inset-0 bg-black/30 backdrop-blur-md z-40 animate-in fade-in duration-300"
-          onClick={() => {
-            setIsExpanded(false);
-            setIsFocused(false);
-            setIsOpen(false);
-          }}
+    <div className="relative w-full max-w-[600px] max-lg:hidden" ref={searchContainerRef}>
+      <div className="background-light800_darkgradient relative flex min-h-[56px] grow items-center gap-1 rounded-xl px-4">
+        <Image
+          src="/assets/icons/search.svg"
+          alt="search"
+          width={24}
+          height={24}
+          className="cursor-pointer"
         />
-      )}
-      
-      <div
-        className={`relative transition-all duration-500 ease-out ${
-          isExpanded 
-            ? "w-full max-w-4xl z-50 fixed top-20 left-1/2 transform -translate-x-1/2" 
-            : "w-full max-w-[600px] max-lg:max-w-[400px] max-md:max-w-[300px]"
-        } max-lg:hidden`}
-        ref={searchContainerRef}
-      >
-        <div 
-          className={`group relative flex min-h-[56px] items-center gap-3 rounded-2xl px-4 transition-all duration-500 ease-out cursor-text ${
-            isExpanded 
-              ? "glass-morphism-emerald shadow-2xl shadow-emerald-200/30 dark:shadow-emerald-900/40 border-2 border-emerald-300/60 dark:border-emerald-600/60 scale-105" 
-              : isFocused
-                ? "glass-morphism-emerald shadow-lg shadow-emerald-200/25 dark:shadow-emerald-900/35 border-2 border-emerald-300/40 dark:border-emerald-600/40 scale-[1.02]"
-                : "glass-morphism-emerald hover:shadow-md hover:shadow-emerald-200/15 dark:hover:shadow-emerald-900/25 border border-emerald-200/30 dark:border-emerald-700/30 hover:border-emerald-300/50 dark:hover:border-emerald-600/50 hover:scale-[1.01]"
-          }`}
-          onClick={handleClick}
-        >
-          {/* Enhanced animated background gradient */}
-          <div className={`absolute inset-0 bg-gradient-to-r from-emerald-50/60 via-green-50/40 to-emerald-50/60 dark:from-emerald-900/25 dark:via-green-900/15 dark:to-emerald-900/25 opacity-0 transition-all duration-500 rounded-2xl ${
-            isFocused ? "opacity-100" : "group-hover:opacity-60"
-          }`} />
-          
-          {/* Enhanced shimmer effect */}
-          <div className={`absolute inset-0 bg-gradient-to-r from-transparent via-emerald-200/40 to-transparent opacity-0 transform -translate-x-full transition-all duration-1000 ease-out rounded-2xl ${
-            isFocused ? "opacity-100 translate-x-full" : ""
-          }`} />
-          
-          <div className="relative z-10 flex items-center gap-3 w-full">
-            <div className="relative">
-              {isLoading ? (
-                <div className="w-6 h-6 border-2 border-emerald-300 border-t-emerald-600 rounded-full animate-spin" />
-              ) : (
-                <Image
-                  src="/assets/icons/search.svg"
-                  width={24}
-                  height={24}
-                  alt="search"
-                  className={`transition-all duration-300 ${
-                    isFocused ? "scale-110 brightness-110" : "group-hover:scale-105"
-                  }`}
-                  style={{ filter: isFocused ? "drop-shadow(0 0 8px rgba(16, 185, 129, 0.5))" : "" }}
-                />
-              )}
-              
-              {/* Enhanced pulse effect when focused */}
-              {isFocused && !isLoading && (
-                <div className="absolute inset-0 rounded-full bg-emerald-400/30 blur-sm animate-pulse" />
-              )}
-            </div>
-            
-            <Input
-              ref={inputRef}
-              value={search}
-              onChange={handleInputChange}
-              onFocus={handleFocus}
-              type="text"
-              placeholder={isExpanded ? "Search anything across the platform..." : "Search Globally"}
-              className={`paragraph-regular no-focus border-none bg-transparent shadow-none outline-none flex-1 transition-all duration-300 ${
-                isFocused 
-                  ? "text-emerald-900 dark:text-emerald-100 placeholder:text-emerald-600 dark:placeholder:text-emerald-400" 
-                  : "text-muted-foreground placeholder:text-muted-foreground"
-              }`}
-            />
-            
-            {/* Enhanced search shortcut indicator */}
-            {!isFocused && !isExpanded && (
-              <div className="hidden sm:flex items-center gap-1 px-2 py-1 rounded-lg bg-emerald-100/60 dark:bg-emerald-800/40 text-emerald-600 dark:text-emerald-400 text-xs font-medium transition-all duration-300 group-hover:bg-emerald-200/60 dark:group-hover:bg-emerald-800/60">
-                <span>⌘</span>
-                <span>K</span>
-              </div>
-            )}
-            
-            {/* Clear button when expanded and has content */}
-            {isExpanded && search && (
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setSearch("");
-                  setIsOpen(recentSearches.length > 0);
-                }}
-                className="p-1.5 rounded-full hover:bg-emerald-100/60 dark:hover:bg-emerald-800/40 text-emerald-600 dark:text-emerald-400 transition-all duration-200 hover:scale-110"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M18 6L6 18M6 6l12 12" />
-                </svg>
-              </button>
-            )}
-          </div>
-        </div>
-        
-        {/* Enhanced search results with recent searches */}
-        {isOpen && (
-          <div className={`absolute top-full left-0 right-0 mt-3 animate-in fade-in slide-in-from-top-2 duration-300 ${
-            isExpanded ? "z-50" : ""
-          }`}>
-            {/* Recent searches section */}
-            {!search && recentSearches.length > 0 && (
-              <div className="mb-3 p-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl border border-emerald-200/30 dark:border-emerald-700/30 shadow-lg">
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-sm font-medium text-emerald-700 dark:text-emerald-300">Recent Searches</h3>
-                  <button
-                    onClick={clearRecentSearches}
-                    className="text-xs text-emerald-600 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-200 transition-colors duration-200"
-                  >
-                    Clear all
-                  </button>
-                </div>
-                <div className="space-y-2">
-                  {recentSearches.map((recentSearch, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center justify-between p-2 rounded-lg hover:bg-emerald-50/80 dark:hover:bg-emerald-900/30 transition-all duration-200 cursor-pointer group"
-                      onClick={() => handleRecentSearchClick(recentSearch)}
-                    >
-                      <div className="flex items-center gap-2">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-500">
-                          <path d="M3 3v5h5M3 21v-5h5M21 3v5h-5M21 21v-5h-5"/>
-                        </svg>
-                        <span className="text-sm text-gray-700 dark:text-gray-300">{recentSearch}</span>
-                      </div>
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          removeRecentSearch(recentSearch);
-                        }}
-                        className="opacity-0 group-hover:opacity-100 p-1 rounded-full hover:bg-emerald-100 dark:hover:bg-emerald-800/50 text-emerald-600 dark:text-emerald-400 transition-all duration-200"
-                      >
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M18 6L6 18M6 6l12 12" />
-                        </svg>
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-            
-            {/* Search results */}
-            {search && <GlobalResult />}
-          </div>
-        )}
+        <Input
+          type="text"
+          placeholder="Search"
+          value={search}
+          onChange={(e) => {
+            setSearch(e.target.value);
+            if (!isOpen) setIsOpen(true);
+            if (e.target.value === "" && isOpen) setIsOpen(false);
+          }}
+          className="paragraph-regular no-focus placeholder text-dark400_light700 border-none bg-transparent shadow-none outline-none"
+        />
       </div>
-    </>
+      {isOpen && <GlobalResult />}
+    </div>
   );
 };
 

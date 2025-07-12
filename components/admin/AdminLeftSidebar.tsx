@@ -43,16 +43,16 @@ const AdminLeftSidebar = () => {
   const pathname = usePathname();
 
   return (
-    <aside className="fixed left-0 top-0 h-screen w-64 glass-morphism-emerald border-r border-emerald-200/30 dark:border-emerald-700/30 p-6 flex flex-col justify-between animate-fade-in">
-      <div>
+    <aside className="fixed left-0 top-0 h-screen w-64 bg-gray-900 border-r border-gray-700/50 p-6 flex flex-col justify-between animate-fade-in">
+      <div className="relative z-10">
         <div className="flex items-center gap-3 mb-10 animate-fade-in-up">
           <div className="relative group">
-            <div className="p-3 rounded-xl bg-gradient-to-r from-emerald-500 to-green-500 group-hover:from-emerald-600 group-hover:to-green-600 transition-all duration-300 shadow-lg">
+            <div className="p-3 rounded-xl bg-gradient-to-r from-gray-700 to-gray-800 group-hover:from-gray-600 group-hover:to-gray-700 transition-all duration-300 shadow-lg">
               <Shield className="h-7 w-7 text-white transition-transform duration-300 group-hover:scale-110" />
             </div>
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-emerald-400 to-green-400 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-30" />
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-gray-500 to-gray-600 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-20" />
           </div>
-          <h2 className="h2-bold bg-gradient-to-r from-emerald-700 to-green-600 bg-clip-text text-transparent dark:from-emerald-300 dark:to-green-300">Admin</h2>
+          <h2 className="h2-bold bg-gradient-to-r from-gray-300 to-white bg-clip-text text-transparent">Admin</h2>
         </div>
 
         <nav className="flex flex-col gap-3">
@@ -71,15 +71,15 @@ const AdminLeftSidebar = () => {
                   href={link.route}
                   className={`${
                     isActive
-                      ? "bg-gradient-to-r from-emerald-500 to-green-500 text-white shadow-lg shadow-emerald-200/50 dark:shadow-emerald-900/50"
-                      : "text-emerald-700 dark:text-emerald-300 hover:bg-emerald-100/50 dark:hover:bg-emerald-800/30"
+                      ? "bg-gradient-to-r from-gray-700 to-gray-800 text-white shadow-lg shadow-gray-900/50"
+                      : "text-gray-300 hover:bg-gray-800/50"
                   } flex items-center justify-start gap-4 p-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-md group relative overflow-hidden`}
                 >
                   {!isActive && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-50/50 to-green-50/50 dark:from-emerald-900/20 dark:to-green-900/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100 rounded-xl" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-gray-800/50 to-gray-900/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100 rounded-xl" />
                   )}
                   <div className="relative z-10 flex items-center gap-4">
-                    <link.icon className={`h-5 w-5 transition-transform duration-300 group-hover:scale-110 ${isActive ? 'text-white' : ''}`} />
+                    <link.icon className={`h-5 w-5 transition-transform duration-300 group-hover:scale-110 ${isActive ? 'text-white' : 'text-gray-400'}`} />
                     <p className={`base-medium transition-colors duration-300 ${isActive ? 'text-white font-semibold' : ''}`}>{link.label}</p>
                   </div>
                 </Link>
